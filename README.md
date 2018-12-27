@@ -1,6 +1,15 @@
 # helix_keymap
 Prototype Helix keymap currently supports only 5-rows.
 
+Please refer following to know how to build the keymap.
+
+https://github.com/MakotoKurauchi/helix/blob/master/Doc/firmware_jp.md
+
+運指を少なくすることを目的に、一部Vortex Coreのキーマップを参考にして作成したキーマップです。
+基本的に使用するのは下4行になるようにしています。
+使用感をしばらく確認した後に4行版へも展開していこうと考えています。
+
+
 ## Layout
 
 ### Qwerty
