@@ -1,14 +1,18 @@
 # helix_keymap
-Prototype Helix keymap currently supports only 5-rows.
+運指を少なくすることを目的に、下4行を中心に利用することを想定したキーマップです。
 
-Please refer following to know how to build the keymap.
-
-https://github.com/MakotoKurauchi/helix/blob/master/Doc/firmware_jp.md
-
-運指を少なくすることを目的に、一部Vortex Coreのキーマップを参考にして作成したキーマップです。
-基本的に使用するのは下4行になるようにしています。
-使用感をしばらく確認した後に4行版へも展開していこうと考えています。
-
+* Enter, Ctrl, Shift, GUI, App keyを一般的なキーボードに合わせて配置
+* Space keyへのアクセスをよくするためにEISU, Lower, Raise, KANAを1key外側へ移動
+* 日本語入力で多用する"-"をBase layerへ移動
+* 誤打防止のためB, N keyをそれぞれ右手内側、左手内側へ配置
+  - あと、距離の遠いこの位置にカッコを残しておきたくなかった
+* Function, 数字, 一部記号keyはLower layerへまとめて移動
+  - default keymapでLowerに居た記号はLower + Shiftで入力することを想定
+* 移動キー, Del, BkspなどはRaise layer + 右手側のキーで入力できるように設定
+  - 不在だったPrsc, Sclk, Pause, Insもこのlayerへ配置
+  - カーソル移動はVim準拠とすることで指の移動を削減
+  - 多用するBack Spaceは入力しやすいRaise + 右手小指に設定
+* 滅多に使うことのないであろうAdjustはLower + Raiseで代用することを想定し削除
 
 ## Layout
 
@@ -39,7 +43,7 @@ https://github.com/MakotoKurauchi/helix/blob/master/Doc/firmware_jp.md
  |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
  |      |      |      |      |      |      |      |      |   '  |   [  |   ]  |  \   |  `   |      |
  |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
- |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+ |      |      |      |      |      |      |      | Del  |      |      |      |      |      |      |
  `-------------------------------------------------------------------------------------------------'
 ```
 
@@ -54,7 +58,7 @@ https://github.com/MakotoKurauchi/helix/blob/master/Doc/firmware_jp.md
  |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
  |      |      |      |      |      |      |      |      | End  |PageDn| Del  |      | Ins  |      |
  |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
- |      |      |      |      |      |      |      | Del  |      |      |      |      |      |      |
+ |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
  `-------------------------------------------------------------------------------------------------'
 ```
 
@@ -72,3 +76,12 @@ https://github.com/MakotoKurauchi/helix/blob/master/Doc/firmware_jp.md
  |      |      |      |      |      |      |      |      |      |      | MODE | HUE- | SAT- | VAL- |
  `-------------------------------------------------------------------------------------------------'
 ```
+
+## How to build
+
+1. 以下を参考にビルド環境を構築してください
+  - https://github.com/MakotoKurauchi/helix/blob/master/Doc/firmware_jp.md
+2. /keyboards/helix/rev2/keymaps/に https://github.com/mjdigit/helix_keymap.git をcloneしてください
+3. 環境に応じてrules.mkを設定してください
+4. `make helix:helix_keymap`でファームウェアをビルドします。そのままキーボードへ書き込みたい場合は`:avrdude`を付けます
+5. ファームウェアを左右のキーボードに書き込んでください
